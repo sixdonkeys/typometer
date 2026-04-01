@@ -17,7 +17,7 @@
         <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>
-            <version>4.2.0</version>
+            <version>5.14.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -33,8 +33,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -53,7 +53,10 @@
                             <artifact>net.java.dev.jna:jna</artifact>
                             <includes>
                                 <include>com/sun/jna/*</include>
+                                <include>com/sun/jna/darwin-aarch64/*</include>
+                                <include>com/sun/jna/darwin-x86-64/*</include>
                                 <include>com/sun/jna/linux-arm/*</include>
+                                <include>com/sun/jna/linux-aarch64/*</include>
                                 <include>com/sun/jna/linux-x86/*</include>
                                 <include>com/sun/jna/linux-x86-64/*</include>
                                 <include>com/sun/jna/ptr/*</include>

@@ -29,13 +29,14 @@ class ColoredRenderer extends DefaultTableCellRenderer {
 
     private Map<Integer, Color> myColors = new HashMap<>();
 
-    // Required becase DefaultTableCellRenderer.unselectedBackground is not declared as "protected" yet.
+    // Required because DefaultTableCellRenderer.unselectedBackground is not declared as "protected" yet.
+    // Catches Exception (not just NoSuchFieldException) for Java 17+ module system compatibility.
     private static Optional<Field> createBackgroundField() {
         try {
             Field field = Component.class.getDeclaredField("background");
             field.setAccessible(true);
             return Optional.of(field);
-        } catch (NoSuchFieldException e) {
+        } catch (Exception e) {
             return Optional.empty();
         }
     }
